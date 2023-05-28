@@ -35,11 +35,11 @@ program
     
     const quoteAdded = `${quote}`
     const authorAdded = `${author || "Anonymous"}`
-    const preparedEntry = `${quoteAdded} + ${authorAdded} + \n`
-    await fs.appendFile(QUOTE_FILE, preparedEntry, 'utf-8')
+    const preparedEntry = `${quoteAdded}|${authorAdded} \n`
+    fs.appendFile(QUOTE_FILE, preparedEntry, 'utf-8')
     // After the quote/author is saved,
     // alert the user that the quote was added.
-    console.log('Your quote has been added!')
+    console.log(chalk.green('Your quote has been added!'))
     // You may style the text with chalk as you wish
     // HINT: You can store both author and quote on the same line using
     // a separator like pipe | and then using .split() when retrieving
